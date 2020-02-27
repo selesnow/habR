@@ -1,0 +1,14 @@
+Package: habR
+Type: Package
+Title: Parsing habr.com statistic
+Version: 0.1
+Date: 2020-02-27
+Author: Alexey Seleznev
+Maintainer: Alexey Seleznev <selesnow@gmail.com>
+Description: Simple scrapping statistic from habr.com
+License: GPL-2
+Imports: rvest, 
+         purrr, 
+		 stringr, 
+		 dplyr, 
+		 forcats
