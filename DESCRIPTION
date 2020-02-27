@@ -9,5 +9,6 @@ Description: Simple scrapping statistic from habr.com
 License: GPL-2
 Imports: rvest, 
          purrr, 
-		 stringr, 
-		 dplyr
+         stringr, 
+	 dplyr,
+	 xml2
