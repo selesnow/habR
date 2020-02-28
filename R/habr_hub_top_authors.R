@@ -1,5 +1,13 @@
-habr_hub_top_authors <-
+habr_hub_top_authors <- 
 function(hub) {
+  
+  if ( str_detect(string = hub, pattern = "^http") ) {
+    
+    hub <- str_replace("https://habr.com/ru/hub/r/", 
+                       pattern = ".*(hub)/(.*)/(.*)", 
+                       replacement = "\\2")
+    
+  }
   
   hub_top   <- read_html( str_interp("https://habr.com/ru/hub/${hub}/authors/") )
   user_ids  <- html_nodes(hub_top, "#peoples li") %>% html_attr("id")
