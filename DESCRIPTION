@@ -1,8 +1,8 @@
 Package: habR
 Type: Package
 Title: Parsing habr.com statistic
-Version: 0.1
-Date: 2020-02-27
+Version: 0.2
+Date: 2020-03-02
 Author: Alexey Seleznev
 Maintainer: Alexey Seleznev <selesnow@gmail.com>
 Description: Simple scrapping statistic from habr.com
