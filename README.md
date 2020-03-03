@@ -11,6 +11,28 @@ R Пакет для анализа хабов и авторов сайта habr.
 devtools::install_github("selesnow/habR")
 ```
 
+# функции
+- `habr_user()` - подключиться к странице автора Хабры
+- `habr_get_posts_stat()` - загрузить список статей пользователя
+- `habr_hub_top_authors()` - загрузить топ 100 пользователей Хаба
+- `habr_hub_posts()` - загрузить все статьи определённого хаба
+
+# пример загрузки данных
+```r
+library(habR)
+library(dplyr)
+
+# получить статьи автора с логином selesnow
+habr_user("selesnow") %>%
+  habr_get_posts_stat
+
+# собираем лучших авторов хаба R
+top_authors <- habr_hub_top_authors("https://habr.com/ru/hub/r/")
+
+# собираем все статьи с Хаба R
+r_articles <- habr_hub_posts("https://habr.com/ru/hub/r/")
+```
+
 # пример использования
 ```r
 library(habR)
