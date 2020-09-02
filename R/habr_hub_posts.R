@@ -1,5 +1,5 @@
 # hab top authors
-habr_hub_posts <- function(hub) {
+habr_hub_posts <- function(hub, page_number = 0) {
   
   if ( str_detect(string = hub, pattern = "^http") ) {
     
@@ -12,6 +12,7 @@ habr_hub_posts <- function(hub) {
   link      <- str_interp("https://habr.com/ru/hub/${hub}/") 
   res       <- list()
   to_next   <- TRUE
+  page_num  <- 1
   
   while ( to_next ) {
     
@@ -36,7 +37,7 @@ habr_hub_posts <- function(hub) {
     next_page <- html_nodes(hub_top, "[class='arrows-pagination__item-link arrows-pagination__item-link_next']") %>% html_attr("href")
     
     
-    if ( length(next_page) > 0  ) {
+    if ( length(next_page) > 0 & ( page_number == 0 | page_num < page_number)  ) {
       
       link <- str_c("https://habr.com/", next_page, collapse = "")
       Sys.sleep(1)
@@ -45,6 +46,9 @@ habr_hub_posts <- function(hub) {
       to_next <- FALSE
       
     }
+    
+    page_num <- page_num + 1
+    
   }
   
   result <- bind_rows(res)
